@@ -1,12 +1,19 @@
+import pandas
+
+
 class Individual:
     def __init__(self, id):
         self.id = id
         self.aircraft = []
         self.proportion = []
         self.runway = []
+        self.earliestTime = []
+        self.landingTime = []
+        self.latestTime = []
 
-    numberOfAircrafts = 20
-    numberOfRunways = 4
+    numberOfAircrafts = 10
+    numberOfRunways = 1
+    directory = "C:\\Users\\janis\\Documents\\Uni\\Master\\TUM\\Airport Operations Management\\Airland1.xlsx"
 
     def createRandom(self):
         import random
@@ -16,18 +23,23 @@ class Individual:
         for y in range(self.numberOfAircrafts):
             self.runway.append(random.randint(1, self.numberOfRunways))
 
+    def calcTime(self):
+        df = pandas.read_excel(Individual.directory)
+        array = df.as_matrix()
+        for x in range(Individual.numberOfAircrafts):
+            self.earliestTime.append(array[x][5])
+            self.latestTime.append(array[x][7])
+
+    def calcLandingTime(self):
+        for x in range(Individual.numberOfAircrafts):
+            earliest = self.earliestTime[x]
+            latest = self.latestTime[x]
+            self.landingTime.append(earliest + self.proportion[x] * (latest - earliest))
+
 
 x = Individual(1)
 x.createRandom()
-print(x.proportion)
-
-
-import pandas
-
-df = pandas.read_excel("C:\\Users\\janis\\Documents\\Uni\\Master\\TUM\\Airport Operations Management\\Airland1.xlsx")
-
-print(df.columns)
-
-values = df[3].values
-
-print(values)
+x.calcTime()
+x.calcLandingTime()
+print(x.earliestTime)
+print(x.landingTime)
