@@ -43,3 +43,8 @@ x.calcTime()
 x.calcLandingTime()
 print(x.earliestTime)
 print(x.landingTime)
+
+a = [2, 1, 3, 4]
+a.sort()
+print(a)
+
