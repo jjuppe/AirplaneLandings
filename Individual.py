@@ -43,14 +43,14 @@ class Individual:
     def calcTime(self):
         df = pandas.read_excel(Individual.directory)
         array = df.as_matrix()
-        # print(list(df))
+        print(list(df))
         for x in range(Individual.numberOfAircrafts):
             self.earliestTime.append(array[x][5])
             self.latestTime.append(array[x][7])
             self.penaltyCost.append(array[x][8])
             self.targetTime.append(array[x][6])
-            for y in range(Individual.numberOfAircrafts):
-                self.minDistanceBetweenPlane[x][y] = array[x][11 + y]
+            for y in range(Individual.numberOfAircrafts-1):
+                self.minDistanceBetweenPlane[x][y] = array[x][10 + y]
 
     def calcLandingTime(self):
         for x in range(Individual.numberOfAircrafts):
