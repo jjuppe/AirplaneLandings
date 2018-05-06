@@ -24,6 +24,7 @@ class Population:
         for x in range(self.populationSize):
             self.rankedIndividuals[x].rank = self.populationSize - x
 
+
     def calcDistance(self, lhs: Individual, rhs: Individual):
         totaldistance = 0
         for x in range(lhs.numberOfAircrafts):
@@ -34,7 +35,6 @@ class Population:
         return totaldistance
 
     def determineParentSets(self):
-        n = 0
         while self.individualWithRankRemains():
             # recalculation of available set
             self.availableNodes.clear()
@@ -55,7 +55,6 @@ class Population:
             # adding to parent sets
             self.parentSets.append(set())
             while len(self.availableNodes) > 0:
-                element: Individual
                 element = self.availableNodes.pop()
                 element.rank = element.rank - 1
                 self.parentSets[len(self.parentSets) - 1].add(element)

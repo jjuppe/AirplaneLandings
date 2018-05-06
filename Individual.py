@@ -13,10 +13,10 @@ class Individual:
         self.rank = -1
         self.hasEdgesToAirplanes = set()
 
-        # def __repr__(self):
-        #   return repr(
-        #      "The unfitness of individual " + str(self.id) + " is " + str(self.unfitness) + " and obj is: " + str(
-        #         self.fitness) + " and the rank " + str(self.rank) + " in the population")
+    #def __repr__(self):
+     #   return repr(
+      #      "The unfitness of individual " + str(self.id) + " is " + str(self.unfitness) + " and obj is: " + str(
+       #         self.fitness) + " and the rank " + str(self.rank) + " in the population")
 
     def __repr__(self):
         return "Airplane " + str(self.id)
