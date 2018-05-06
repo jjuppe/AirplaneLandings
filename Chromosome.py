@@ -10,6 +10,6 @@ class Airplane:
         self.penaltyCost: int
         self.landingTime: int
 
-
     def __repr__(self):
-        return "airplane: " + str(self.aircraftNr) + " landed at " + str(self.landingTime) + ", which equals a proportion of: " + str(self.proportion)
+        return "airplane: " + str(self.aircraftNr) + " landed at " + str(
+            self.landingTime) + ", which equals a proportion of: " + str(self.proportion)

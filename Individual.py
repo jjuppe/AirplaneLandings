@@ -10,11 +10,16 @@ class Individual:
         self.fitness = 0.0
         self.unfitness = 0.0
         self.airplanes = []
+        self.rank = -1
+        self.hasEdgesToAirplanes = set()
+
+        # def __repr__(self):
+        #   return repr(
+        #      "The unfitness of individual " + str(self.id) + " is " + str(self.unfitness) + " and obj is: " + str(
+        #         self.fitness) + " and the rank " + str(self.rank) + " in the population")
 
     def __repr__(self):
-        return repr(
-            "The unfitness of individual " + str(self.id) + " is " + str(self.unfitness) + " and obj is: " + str(
-                self.fitness))
+        return "Airplane " + str(self.id)
 
     numberOfAircrafts = 10
     numberOfRunways = 1
@@ -34,16 +39,17 @@ class Individual:
         self.calcUnfitnessValue()
 
     def createHeuristicIndividual(self, type):
-        if type == HeuristicTypes.EARLIEST:
+        if type == 1:
             self.createEarliestHeuristic()
-        if type == HeuristicTypes.TARGET:
+        if type == 2:
             self.createTargetHeuristic()
-        if type == HeuristicTypes.LATEST:
+        if type == 3:
             self.createLatesttHeuristic()
 
     def createEarliestHeuristic(self):
         for x in range(Individual.numberOfAircrafts):
             self.airplanes.append(Airplane(x))
+            self.airplanes[x].runwayAllocated = 1
 
         self.importTimes()
         earliest_Sorted = sorted(self.airplanes, key=lambda airplane: airplane.earliestTime)
@@ -67,6 +73,7 @@ class Individual:
     def createTargetHeuristic(self):
         for x in range(Individual.numberOfAircrafts):
             self.airplanes.append(Airplane(x))
+            self.airplanes[x].runwayAllocated = 1
 
         self.importTimes()
         target_Sorted = sorted(self.airplanes, key=lambda airplane: airplane.targetTime)
@@ -88,6 +95,7 @@ class Individual:
     def createLatesttHeuristic(self):
         for x in range(Individual.numberOfAircrafts):
             self.airplanes.append(Airplane(x))
+            self.airplanes[x].runwayAllocated = 1
 
         self.importTimes()
         latest_Sorted = sorted(self.airplanes, key=lambda airplane: airplane.latestTime)
