@@ -7,7 +7,7 @@ import openpyxl as xl
 ###############################################################################
 
 # Where results are stored
-SOLUTION_FILE = "results/results.xlsx"
+SOLUTION_FILE = "results.xlsx"
 
 # Which instances are run?
 DATA_SETS = [1, 2, 3]  # add airland files in [1, ..., 13]
