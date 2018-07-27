@@ -6,7 +6,10 @@ This project contains a Bionomic Algorithm and a Mixed-integer Linear Program fo
 Authors: Janis Juppe & Robert zur Bonsen
 
 ## Problem Setting
-In this project we implemented a Bionomic Algorithm for the Aircraft Landing Problem in a seminar at TUM. The seminar was about Airport Operations Management. A relevant problem many airports face is to determine the landing sequence and scheduling of incoming airlanes on the available runways while satisfying separation time constraints due to air turbulences. This becomes especially challenging with increasing air traffic. In this project we only regard the static case where all airplanes are known beforehand. 
+In this project we implemented a Bionomic Algorithm for the Aircraft Landing Problem in a seminar at TUM. The seminar was about Airport Operations Management. A relevant problem many airports face is to determine the landing sequence and scheduling of incoming airlanes on the available runways while satisfying separation time constraints due to air turbulences. This becomes especially challenging with increasing air traffic. 
+
+## Solution
+We implemented a Bionomic Algorithm (BA) as presented in Pinol & Beasley (2006) to solve the problem. The BA is based on the principles of Genetic Algorithms but employs more structured procedures. As such, a local improvement step aims to improve every individual by using a MILP model. Furthermore, parent selection uses an elaborate graph representation to create parent sets of high diversity. 
 
 ## Installation
 
